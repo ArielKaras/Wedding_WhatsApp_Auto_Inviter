@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# User specific data
+*.csv
+!test_contact.csv
+legacy_wedding_inviter.py
+
+# OS generated files
+.DS_Store
+Thumbs.db
