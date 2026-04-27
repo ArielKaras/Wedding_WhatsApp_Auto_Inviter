@@ -56,8 +56,12 @@ Before running the application, you **must prepare two files**:
    * **Step 4**: Send the message on WhatsApp, then return to the application and click `Next` for the next contact.
 
 ## Customizing the Message Text
-You can easily modify the generic message content and design by editing the `config.py` file.
-Locate the `DEFAULT_MESSAGE` variable and change the text as desired (make sure to leave the `{name}` placeholder where you want the contact's name to appear).
+You do not need to modify any code to customize your invitation message!
+When you run the application for the first time, it will automatically create a file named `message_template.txt` in the same folder.
+* Open `message_template.txt` in any text editor (like Notepad).
+* Edit the message to whatever you like.
+* **Important:** Make sure to leave the `{name}` placeholder where you want the recipient's name to appear!
+* Save the file, and the application will automatically use your new text for all messages.
 
 ---
 *This project was created as a solution to human errors and the desire to streamline everyday technical processes without losing the personal touch.*

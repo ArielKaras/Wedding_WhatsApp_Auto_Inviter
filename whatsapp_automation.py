@@ -4,6 +4,7 @@ import subprocess
 import time
 import threading
 import re
+import os
 
 import config
 from locales import LOCALES
@@ -27,6 +28,17 @@ class WhatsAppAutomation:
     """
     def __init__(self, lang="he"):
         self.texts = LOCALES.get(lang, LOCALES["he"])
+        self.template_file = "message_template.txt"
+        self._ensure_template_file()
+
+    def _ensure_template_file(self):
+        """
+        מוודא שקובץ התבנית קיים. אם לא - יוצר אותו עם טקסט ברירת המחדל.
+        Ensures the template file exists. If not, creates it with default text.
+        """
+        if not os.path.exists(self.template_file):
+            with open(self.template_file, "w", encoding="utf-8") as f:
+                f.write(self.texts["default_message"])
     
     @staticmethod
     def format_phone(phone: str) -> str:
@@ -69,9 +81,19 @@ class WhatsAppAutomation:
         """
         clean_phone = self.format_phone(phone)
         
+        # קריאת התבנית העדכנית מהקובץ
+        # Read the current template from the file
+        with open(self.template_file, "r", encoding="utf-8") as f:
+            template_text = f.read().strip()
+            
+        # תכנות מגננתי - בדיקה שהתגית קיימת
+        # Defensive programming - ensure {name} tag exists
+        if "{name}" not in template_text:
+            raise ValueError(self.texts["error_missing_name_tag"])
+            
         # מעצבים את ההודעה עם שם איש הקשר
         # Format the message with the contact's name
-        message = self.texts["default_message"].format(name=name)
+        message = template_text.format(name=name)
         encoded_message = urllib.parse.quote(message)
         
         # יצירת הלינק ופתיחתו

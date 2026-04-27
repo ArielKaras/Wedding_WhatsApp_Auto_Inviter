@@ -21,6 +21,7 @@ LOCALES = {
         "warning_empty_list_text": "אנא טען קובץ אנשי קשר (שלב 2) קודם.",
         "whatsapp_error_title": "שגיאה בפתיחת ווצאפ",
         "whatsapp_error_text": "אירעה שגיאה:\n{error}\n\n{traceback}",
+        "error_missing_name_tag": "חסרה התגית {name} בקובץ message_template.txt!\nאנא החזירו אותה ושמרו את הקובץ כדי שהתוכנה תדע היכן לשתול את השם.",
         "default_message": "היי {name}, מצורפת ההזמנה לאירוע שלנו! נשמח מאוד לראותך ❤️",
         "rtl": True
     },
@@ -46,6 +47,7 @@ LOCALES = {
         "warning_empty_list_text": "Please load a contacts file (Step 2) first.",
         "whatsapp_error_title": "WhatsApp Error",
         "whatsapp_error_text": "An error occurred:\n{error}\n\n{traceback}",
+        "error_missing_name_tag": "The {name} tag is missing in message_template.txt!\nPlease restore it and save the file so the software knows where to insert the name.",
         "default_message": "Hi {name}, our event invitation is attached! We would love to see you there ❤️",
         "rtl": False
     }
