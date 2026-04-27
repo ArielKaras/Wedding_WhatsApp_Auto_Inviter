@@ -1,0 +1,42 @@
+name: Build EXE Releases
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller pyautogui pillow
+
+    - name: Build English Executable (OneFile)
+      run: |
+        pyinstaller --noconfirm --onefile --windowed --icon "app_icon.ico" --name "WhatsApp_Auto_Inviter_EN"  "main_en.py"
+
+    - name: Build Hebrew Executable (OneFile)
+      run: |
+        pyinstaller --noconfirm --onefile --windowed --icon "app_icon.ico" --name "WhatsApp_Auto_Inviter_HE"  "main_he.py"
+
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'release'
+      with:
+        files: |
+          dist/WhatsApp_Auto_Inviter_EN.exe
+          dist/WhatsApp_Auto_Inviter_HE.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
