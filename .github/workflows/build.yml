@@ -36,10 +36,10 @@ jobs:
 
     - name: Upload Release Assets
       uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'release'
       with:
         files: |
           dist/WhatsApp_Auto_Inviter_EN.exe
           dist/WhatsApp_Auto_Inviter_HE.exe
+        tag_name: ${{ github.event.release.tag_name || 'v1.0.0' }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
