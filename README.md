@@ -9,8 +9,23 @@ This tool is built around the **Human-in-the-Loop** philosophy — the automatio
 * 🖼️ **Image Attachment**: Automatically copies and pastes your invitation image directly into the chat window.
 * 🛡️ **Human Oversight**: You control the pace of moving between contacts to ensure no one is missed.
 
-## Prerequisites
-To use this system, ensure you have [Python](https://www.python.org/downloads/) installed.
+## 🚀 How to Download & Run (No Code Required)
+You can simply download the ready-to-use executable without installing Python!
+
+1. Go to the **Releases** tab on the right side of this GitHub repository.
+2. Download the version you prefer:
+   * `WhatsApp_Auto_Inviter_EN.exe` (English Interface)
+   * `WhatsApp_Auto_Inviter_HE.exe` (Hebrew Interface)
+3. Double-click the `.exe` file to start the application.
+
+> [!WARNING]
+> **Windows Defender (SmartScreen) False Positive**
+> Because this is a custom-built `.exe` file using `PyInstaller` (and not digitally signed by a paid certificate), Windows Defender might show a blue warning screen saying "Windows protected your PC".
+> **This is completely normal for open-source tools.**
+> To run the app, simply click **"More info"** on the blue screen, and then click the **"Run anyway"** button.
+
+## Prerequisites (If running from source)
+To run the source code directly, ensure you have [Python](https://www.python.org/downloads/) installed.
 The core automation library will be installed automatically upon first run:
 * `pyautogui` (auto-installed if missing).
 
@@ -25,12 +40,14 @@ Before running the application, you **must prepare two files**:
    * *Note: Column headers are not required; the software reads the rows directly.*
    * Save the file: `File` -> `Save As` -> Choose the format `CSV UTF-8 (Comma delimited) (*.csv)`.
 
-## How to Run
+## How to Run from Source
 1. Download all project files to your computer.
 2. Open the command line (Terminal / CMD) in the project directory.
-3. Run the following command:
+3. Run one of the following commands based on your language preference:
    ```bash
-   python main.py
+   python main_en.py  # For English
+   # OR
+   python main_he.py  # For Hebrew
    ```
 4. In the application window:
    * **Step 1**: Click `Load Image` and select your invitation image.
