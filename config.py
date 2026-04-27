@@ -1,15 +1,14 @@
 """
 הגדרות וקונפיגורציה של המערכת.
-כאן ניתן לשנות בקלות את טקסט ההודעה, זמני המתנה וכו'.
+System configuration and settings.
 """
 
-# הטקסט שישלח לכל מוזמן. {name} יוחלף אוטומטית בשם איש הקשר.
-DEFAULT_MESSAGE = "היי {name}, מצורפת ההזמנה לאירוע שלנו! נשמח מאוד לראותך ❤️"
-
 # זמן המתנה (בשניות) מרגע פתיחת הדפדפן ועד ביצוע הדבקת התמונה
+# Wait time (in seconds) from browser opening to image pasting
 WHATSAPP_LOAD_DELAY = 7
 
 # צבעי הממשק
+# UI Colors
 UI_COLORS = {
     "background": "#f9f9f9",
     "text": "#333333",
